@@ -1,0 +1,24 @@
+This is Radiolater, an FM radio with a digital delay. Or it will be someday. At the moment all it does is throw up some display and blink the activity led.
+
+The code in this project is based around the following hardware:
+- Raspberry Pi A+
+- TM1638 display module from dealextreme (sku 81873, but other colors exist)
+- TEA5767 module from dealextreme (sku 239086)
+- ADCDAC module from abelectronics.co.uk
+
+Other hardware:
+- Sparkfun FTDI basic breakout, used with bootloader
+
+The software is based on the Raspberry Pi port of FreeRTOS from https://github.com/jameswalmsley/RaspberryPi-FreeRTOS .
+
+Thanks to dwelch67 for his collection of baremetal examples. I'm using his bootloader to get started here.
+
+Other software:
+- Yagarto cross-compiler
+- MinGW to run Yagarto
+- Tera Term for xmodem sends to bootloader
+
+Next steps:
+- Create initial tasks, one to handle display tasks (output characters to display, read buttons into buffer) and one to run the menu (send characters to a display buffer, handle button 'events')
+- Start talking to ADC and DAC
+- Figure out how to vary RTOS period (changing configTICK_RATE_HZ isn't enough)

@@ -1,0 +1,39 @@
+// CPU runs at 700mhz, timers run at 1mhz
+#define RPI_CLOCK 700000000
+#define RPI_TIMER_CLOCK 1000000
+
+#define ARMBASE 0x8000
+
+// Core clock/interrupt defines
+#define CS  0x20003000
+#define CLO 0x20003004
+#define C0  0x2000300C
+#define C1  0x20003010
+#define C2  0x20003014
+#define C3  0x20003018
+
+// GPIO defines
+#define GPFSEL0 0x20200000
+#define GPFSEL1 0x20200004
+#define GPFSEL2 0x20200008
+#define GPFSEL3 0x2020000c
+#define GPFSEL4 0x20200010
+#define GPFSEL5 0x20200014
+#define GPSET0  0x2020001C
+#define GPSET1  0x20200020
+#define GPCLR0  0x20200028
+#define GPCLR1  0x2020002c
+#define GPLEV0  0x20200034
+#define GPLEV1  0x20200038
+#define GPEDS0  0x20200040
+#define GPEDS1  0x20200044
+#define GPREN0  0x2020004c
+#define GPREN1  0x20200050
+
+// UART defines
+#define AUX_ENB     0x20215004
+#define AUX_MU_IO   0x20215040
+#define AUX_MU_LCR  0x2021504c
+#define AUX_MU_LSR  0x20215054
+#define AUX_MU_CNTL 0x20215060
+#define AUX_MU_BAUD 0x20215068

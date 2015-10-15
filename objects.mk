@@ -13,12 +13,18 @@ OBJECTS += $(BUILD_DIR)FreeRTOS/Source/queue.o
 OBJECTS += $(BUILD_DIR)FreeRTOS/Source/tasks.o
 
 #
-#	Interrupt Manager & GPIO Drivers
+#	Onboard peripheral drivers
 #
-OBJECTS += $(BUILD_DIR)Demo/Drivers/interrupts.o
-OBJECTS += $(BUILD_DIR)Demo/Drivers/gpio.o
+OBJECTS += $(BUILD_DIR)core/Drivers/interrupts.o
+OBJECTS += $(BUILD_DIR)core/Drivers/gpio.o
+OBJECTS += $(BUILD_DIR)core/Drivers/serial.o
 
-$(BUILD_DIR)FreeRTOS/Source/portable/GCC/RaspberryPi/port.o: CFLAGS += -I $(BASE)Demo/
+#
+#	External peripheral drivers
+#
+OBJECTS += $(BUILD_DIR)core/Drivers/tm1638.o
+
+$(BUILD_DIR)FreeRTOS/Source/portable/GCC/RaspberryPi/port.o: CFLAGS += -I $(BASE)core/
 
 #
 #	Selected HEAP implementation for FreeRTOS.
@@ -28,10 +34,10 @@ OBJECTS += $(BUILD_DIR)/FreeRTOS/Source/portable/MemMang/heap_4.o
 #
 #	Startup and platform initialisation code.
 #
-OBJECTS += $(BUILD_DIR)Demo/startup.o
+OBJECTS += $(BUILD_DIR)core/startup.o
 
 
 #
 #	Main Test Program
 #
-OBJECTS += $(BUILD_DIR)Demo/main.o
+OBJECTS += $(BUILD_DIR)core/main.o
